@@ -10,6 +10,7 @@
     <div id="toolbar">
       <a href="#" id="all" class="button active">All Loans</a>
       <a href="#" id="year" class="button">Loans By Year</a>
+      <a href="#" id="state" class="button">Loans By State</a>
     </div>
     <div id="vis"></div>
 
@@ -30,6 +31,60 @@ function bubbleChart() {
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
+  var stateCenters = {
+    "Alaska": { x: width/5, y: height/11 },
+    "Alabama": { x: 2* width/5, y: height/11 },
+    "Arkansas": { x: width/2, y: height/11 },
+    "Arizona": { x: 3 * width/5, y: height/11 },
+    "California": { x: 4 * width/5, y: height/11 },
+    "Colorado": { x: width/5, y: 2*height/11 },
+    "Connecticut": { x: 2* width/5, y: 2*height/11 },
+    "Washington, D.C.": { x: width/2, y: 2*height/11 },
+    "Delaware": { x: 3 * width/5, y: 2*height/11 },
+    "Florida": { x: 4 * width/5, y: 2*height/11 },
+    "Georgia": { x: width/5, y: 3*height/11 },
+    "Hawaii": { x: 2* width/5, y: 3*height/11 },
+    "Iowa": { x: width/2, y: 3*height/11 },
+    "Idaho": { x: 3 * width/5, y: 3*height/11 },
+    "Illinois": { x: 4 * width/5, y: 3*height/11 },
+    "Indiana": { x: width/5, y: 4*height/11 },
+    "Kansas": { x: 2* width/5, y: 4*height/11 },
+    "Kentucky": { x: width/2, y: 4*height/11 },
+    "Louisiana": { x: 3 * width/5, y: 4*height/11 },
+    "Massachusetts": { x: 4 * width/5, y: 4*height/11 },
+    "Maryland": { x: width/5, y: 5*height/11 },
+    "Maine": { x: 2* width/5, y: 5*height/11 },
+    "Michigan": { x: width/2, y: 5*height/11 },
+    "Minnesota": { x: 3 * width/5, y: 5*height/11 },
+    "Missouri": { x: 4 * width/5, y: 5*height/11 },
+    "Mississippi": { x: width/5, y: 6*height/11 },
+    "Montana": { x: 2* width/5, y: 6*height/11 },
+    "North Carolina": { x: width/2, y: 6*height/11 },
+    "North Dakota": { x: 3 * width/5, y: 6*height/11 },
+    "Nebraska": { x: 4 * width/5, y: 6*height/11 },
+    "New Hampshire": { x: width/5, y: 7*height/11 },
+    "New Jersey": { x: 2* width/5, y: 7*height/11 },
+    "New Mexico": { x: width/2, y: 7*height/11 },
+    "Nevada": { x: 3 * width/5, y: 7*height/11 },
+    "New York": { x: 4 * width/5, y: 7*height/11 },
+    "Ohio": { x: width/5, y: 8*height/11 },
+    "Oklahoma": { x: 2* width/5, y: 8*height/11 },
+    "Oregon": { x: width/2, y: 8*height/11 },
+    "Pennsylvania": { x: 3 * width/5, y: 8*height/11 },
+    "Rhode Island": { x: 4 * width/5, y: 8*height/11 },
+    "South Carolina": { x: width/5, y: 9*height/11 },
+    "South Dakota": { x: 2* width/5, y: 9*height/11 },
+    "Tennessee": { x: width/2, y: 9*height/11 },
+    "Texas": { x: 3 * width/5, y: 9*height/11 },
+    "Utah": { x: 4 * width/5, y: 9*height/11 },
+    "Virginia": { x: width/7, y: 10*height/11 },
+    "Vermont": { x: 2* width/7, y: 10*height/11 },
+    "Washington": { x: width/2, y: 10*height/11 },
+    "Wisconsin": { x: 3 * width/7, y: 10*height/11 },
+    "West Virginia": { x: 4 * width/7, y: 10*height/11 },
+    "Wyoming": { x: width/7, y: 10*height/11 }
+
+  }
   var yearCenters = {
     2006: { x: width / 3, y: height / 3 },
     2007: { x: width / 2, y: height / 3 },
@@ -68,6 +123,114 @@ function bubbleChart() {
     2013: 2 * height / 3 - 120,
     2014: 2 * height / 3 - 60
   };
+
+var statesTitleX = {
+  "Alaska": width/5,
+  "Alabama": 2* width/5,
+  "Arkansas": width/2,
+  "Arizona": 3 * width/5,
+  "California": 4 * width/5,
+  "Colorado": width/5,
+  "Connecticut": 2* width/5,
+  "Washington, D.C.": width/2,
+  "Delaware": 3 * width/5,
+  "Florida": 4 * width/5,
+  "Georgia": width/5,
+  "Hawaii": 2* width/5,
+  "Iowa": width/2,
+  "Idaho": 3 * width/5,
+  "Illinois": 4 * width/5,
+  "Indiana": width/5,
+  "Kansas": 2* width/5,
+  "Kentucky": width/2,
+  "Louisiana": 3 * width/5,
+  "Massachusetts": 4 * width/5,
+  "Maryland": width/5,
+  "Maine": 2* width/5,
+  "Michigan": width/2,
+  "Minnesota": 3 * width/5,
+  "Missouri": 4 * width/5,
+  "Mississippi": width/5,
+  "Montana": 2* width/5,
+  "North Carolina": width/2,
+  "North Dakota": 3 * width/5,
+  "Nebraska": 4 * width/5,
+  "New Hampshire": width/5,
+  "New Jersey": 2* width/5,
+  "New Mexico": width/2,
+  "Nevada": 3 * width/5,
+  "New York": 4 * width/5,
+  "Ohio": width/5,
+  "Oklahoma": 2* width/5,
+  "Oregon": width/2,
+  "Pennsylvania": 3 * width/5,
+  "Rhode Island": 4 * width/5,
+  "South Carolina": width/5,
+  "South Dakota": 2* width/5,
+  "Tennessee": width/2,
+  "Texas": 3 * width/5,
+  "Utah": 4 * width/5,
+  "Virginia": width/7,
+  "Vermont": 2* width/7,
+  "Washington": width/2,
+  "Wisconsin": 3 * width/7,
+  "West Virginia": 4 * width/7,
+  "Wyoming": width/7
+}
+var statesTitleY = {
+  "Alaska": height/11,
+  "Alabama": height/11,
+  "Arkansas": height/11,
+  "Arizona": height/11,
+  "California": height/11,
+  "Colorado": 2*height/11,
+  "Connecticut": 2*height/11,
+  "Washington, D.C.": 2*height/11,
+  "Delaware": 2*height/11,
+  "Florida": 2*height/11,
+  "Georgia": 3*height/11,
+  "Hawaii": 3*height/11,
+  "Iowa": 3*height/11,
+  "Idaho": 3*height/11,
+  "Illinois": 3*height/11,
+  "Indiana": 4*height/11,
+  "Kansas": 4*height/11,
+  "Kentucky": 4*height/11,
+  "Louisiana": 4*height/11,
+  "Massachusetts": 4*height/11,
+  "Maryland": 5*height/11,
+  "Maine": 5*height/11,
+  "Michigan": 5*height/11,
+  "Minnesota": 5*height/11,
+  "Missouri": 5*height/11,
+  "Mississippi": 6*height/11,
+  "Montana": 6*height/11,
+  "North Carolina": 6*height/11,
+  "North Dakota": 6*height/11,
+  "Nebraska": 6*height/11,
+  "New Hampshire": 7*height/11,
+  "New Jersey": 7*height/11,
+  "New Mexico": 7*height/11,
+  "Nevada": 7*height/11,
+  "New York": 7*height/11,
+  "Ohio": 8*height/11,
+  "Oklahoma": 8*height/11,
+  "Oregon": 8*height/11,
+  "Pennsylvania": 8*height/11,
+  "Rhode Island": 8*height/11,
+  "South Carolina": 9*height/11,
+  "South Dakota": 9*height/11,
+  "Tennessee": 9*height/11,
+  "Texas": 9*height/11,
+  "Utah": 9*height/11,
+  "Virginia": 10*height/11,
+  "Vermont": 10*height/11,
+  "Washington": 10*height/11,
+  "Wisconsin": 10*height/11,
+  "West Virginia": 10*height/11,
+  "Wyoming": 10*height/11
+}
+
   // Used when setting up force and
   // moving around nodes
   var damper = 0.102;
@@ -226,6 +389,7 @@ function bubbleChart() {
    */
   function groupBubbles() {
     hideYears();
+    hideStates();
 
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
@@ -263,18 +427,27 @@ function bubbleChart() {
    * tick function is set to move nodes to the
    * yearCenter of their data's year.
    */
-  function splitBubbles() {
+  function splitBubblesYear() {
     showYears();
-
-    force.on('tick', function (e) {
+    force.on('tick', function (e) {debugger;
       bubbles.each(moveToYears(e.alpha))
-        .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('cx', function (d) {return d.x; })
+        .attr('cy', function (d) {return d.y; });
     });
 
     force.start();
   }
+  function splitBubblesState() {
+    showStates();
+    debugger;
+    force.on('tick', function (e) {debugger;
+      bubbles.each(moveToStates(e.alpha))
+        .attr('cx', function (d) {return d.x; })
+        .attr('cy', function (d) {return d.y; });
+    });
 
+    force.start();
+  }
   /*
    * Helper function for "split by year mode".
    * Returns a function that takes the data for a
@@ -313,15 +486,42 @@ function bubbleChart() {
     var yearsData = d3.keys(yearsTitleX);
     var years = svg.selectAll('.year')
       .data(yearsData);
-
     years.enter().append('text')
       .attr('class', 'year')
-      .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', function (d) { return yearsTitleY[d]; })
+      .attr('x', function (d) {  return yearsTitleX[d]; })
+      .attr('y', function (d) {  return yearsTitleY[d]; })
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
 
+  function moveToStates(alpha) {
+    return function (d) {
+      var target = stateCenters[d.state]; 
+      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
+      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+    };
+      debugger;
+  }
+  function hideStates() {
+    svg.selectAll('.state').remove();
+  }
+
+  /*
+   * Shows State title displays.
+   */
+  function showStates() {
+    // Another way to do this would be to create
+    // the year texts once and then just hide them.
+    var statesData = d3.keys(statesTitleX);
+    var states = svg.selectAll('.state')
+      .data(statesData);
+    states.enter().append('text')
+      .attr('class', 'state')
+      .attr('x', function (d) {  return statesTitleX[d]; })
+      .attr('y', function (d) {  return statesTitleY[d]; })
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
+  }
 
   /*
    * Function called on mouseover to display the
@@ -363,8 +563,10 @@ function bubbleChart() {
    */
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'year') {
-      splitBubbles();
-    } else {
+      splitBubblesYear();
+    } else if (displayName === 'state'){
+    splitBubblesState();
+     } else {
       groupBubbles();
     }
   };
@@ -404,10 +606,8 @@ function setupButtons() {
       d3.selectAll('.button').classed('active', false);
       // Find the button just clicked
       var button = d3.select(this);
-
       // Set it as the active button
       button.classed('active', true);
-
       // Get the id of the button
       var buttonId = button.attr('id');
 
