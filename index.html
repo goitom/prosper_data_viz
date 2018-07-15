@@ -32,57 +32,57 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var stateCenters = {
-    "Alaska": { x: width/5, y: height/11 },
-    "Alabama": { x: 2* width/5, y: height/11 },
-    "Arkansas": { x: width/2, y: height/11 },
-    "Arizona": { x: 3 * width/5, y: height/11 },
-    "California": { x: 4 * width/5, y: height/11 },
-    "Colorado": { x: width/5, y: 2*height/11 },
-    "Connecticut": { x: 2* width/5, y: 2*height/11 },
-    "Washington, D.C.": { x: width/2, y: 2*height/11 },
-    "Delaware": { x: 3 * width/5, y: 2*height/11 },
-    "Florida": { x: 4 * width/5, y: 2*height/11 },
-    "Georgia": { x: width/5, y: 3*height/11 },
-    "Hawaii": { x: 2* width/5, y: 3*height/11 },
-    "Iowa": { x: width/2, y: 3*height/11 },
-    "Idaho": { x: 3 * width/5, y: 3*height/11 },
-    "Illinois": { x: 4 * width/5, y: 3*height/11 },
-    "Indiana": { x: width/5, y: 4*height/11 },
-    "Kansas": { x: 2* width/5, y: 4*height/11 },
-    "Kentucky": { x: width/2, y: 4*height/11 },
-    "Louisiana": { x: 3 * width/5, y: 4*height/11 },
-    "Massachusetts": { x: 4 * width/5, y: 4*height/11 },
-    "Maryland": { x: width/5, y: 5*height/11 },
-    "Maine": { x: 2* width/5, y: 5*height/11 },
-    "Michigan": { x: width/2, y: 5*height/11 },
-    "Minnesota": { x: 3 * width/5, y: 5*height/11 },
-    "Missouri": { x: 4 * width/5, y: 5*height/11 },
-    "Mississippi": { x: width/5, y: 6*height/11 },
-    "Montana": { x: 2* width/5, y: 6*height/11 },
-    "North Carolina": { x: width/2, y: 6*height/11 },
-    "North Dakota": { x: 3 * width/5, y: 6*height/11 },
-    "Nebraska": { x: 4 * width/5, y: 6*height/11 },
-    "New Hampshire": { x: width/5, y: 7*height/11 },
-    "New Jersey": { x: 2* width/5, y: 7*height/11 },
-    "New Mexico": { x: width/2, y: 7*height/11 },
-    "Nevada": { x: 3 * width/5, y: 7*height/11 },
-    "New York": { x: 4 * width/5, y: 7*height/11 },
-    "Ohio": { x: width/5, y: 8*height/11 },
-    "Oklahoma": { x: 2* width/5, y: 8*height/11 },
-    "Oregon": { x: width/2, y: 8*height/11 },
-    "Pennsylvania": { x: 3 * width/5, y: 8*height/11 },
-    "Rhode Island": { x: 4 * width/5, y: 8*height/11 },
-    "South Carolina": { x: width/5, y: 9*height/11 },
-    "South Dakota": { x: 2* width/5, y: 9*height/11 },
-    "Tennessee": { x: width/2, y: 9*height/11 },
-    "Texas": { x: 3 * width/5, y: 9*height/11 },
-    "Utah": { x: 4 * width/5, y: 9*height/11 },
-    "Virginia": { x: width/7, y: 10*height/11 },
-    "Vermont": { x: 2* width/7, y: 10*height/11 },
-    "Washington": { x: width/2, y: 10*height/11 },
-    "Wisconsin": { x: 3 * width/7, y: 10*height/11 },
-    "West Virginia": { x: 4 * width/7, y: 10*height/11 },
-    "Wyoming": { x: width/7, y: 10*height/11 }
+    "Alaska": { x: width/5, y: height/10 },
+    "Alabama": { x: 2* width/5, y: height/10 },
+    "Arkansas": { x: width/2, y: height/10 },
+    "Arizona": { x: 3 * width/5, y: height/10 },
+    "California": { x: 4 * width/5, y: height/10 },
+    "Colorado": { x: width/5, y: 2*height/10 },
+    "Connecticut": { x: 2* width/5, y: 2*height/10 },
+    "Washington DC": { x: width/2, y: 2*height/10 },
+    "Delaware": { x: 3 * width/5, y: 2*height/10 },
+    "Florida": { x: 4 * width/5, y: 2*height/10 },
+    "Georgia": { x: width/5, y: 3*height/10 },
+    "Hawaii": { x: 2* width/5, y: 3*height/10 },
+    "Iowa": { x: width/2, y: 3*height/10 },
+    "Idaho": { x: 3 * width/5, y: 3*height/10 },
+    "Illinois": { x: 4 * width/5, y: 3*height/10 },
+    "Indiana": { x: width/5, y: 4*height/10 },
+    "Kansas": { x: 2* width/5, y: 4*height/10 },
+    "Kentucky": { x: width/2, y: 4*height/10 },
+    "Louisiana": { x: 3 * width/5, y: 4*height/10 },
+    "Massachusetts": { x: 4 * width/5, y: 4*height/10 },
+    "Maryland": { x: width/5, y: 5*height/10 },
+    "Maine": { x: 2* width/5, y: 5*height/10 },
+    "Michigan": { x: width/2, y: 5*height/10 },
+    "Minnesota": { x: 3 * width/5, y: 5*height/10 },
+    "Missouri": { x: 4 * width/5, y: 5*height/10 },
+    "Mississippi": { x: width/5, y: 6*height/10 },
+    "Montana": { x: 2* width/5, y: 6*height/10 },
+    "North Carolina": { x: width/2, y: 6*height/10 },
+    "North Dakota": { x: 3 * width/5, y: 6*height/10 },
+    "Nebraska": { x: 4 * width/5, y: 6*height/10 },
+    "New Hampshire": { x: width/5, y: 7*height/10 },
+    "New Jersey": { x: 2* width/5, y: 7*height/10 },
+    "New Mexico": { x: width/2, y: 7*height/10 },
+    "Nevada": { x: 3 * width/5, y: 7*height/10 },
+    "New York": { x: 4 * width/5, y: 7*height/10 },
+    "Ohio": { x: width/5, y: 8*height/10 },
+    "Oklahoma": { x: 2* width/5, y: 8*height/10 },
+    "Oregon": { x: width/2, y: 8*height/10 },
+    "Pennsylvania": { x: 3 * width/5, y: 8*height/10 },
+    "Rhode Island": { x: 4 * width/5, y: 8*height/10 },
+    "South Carolina": { x: width/5, y: 9*height/10 },
+    "South Dakota": { x: 2* width/5, y: 9*height/10 },
+    "Tennessee": { x: width/2, y: 9*height/10 },
+    "Texas": { x: 3 * width/5, y: 9*height/10 },
+    "Utah": { x: 4 * width/5, y: 9*height/10 },
+    "Virginia": { x: width/7, y: 10*height/10 },
+    "Vermont": { x: 2* width/7, y: 10*height/10 },
+    "Washington": { x: width/2, y: 10*height/10 },
+    "Wisconsin": { x: 3 * width/7, y: 10*height/10 },
+    "West Virginia": { x: 4 * width/7, y: 10*height/10 },
+    "Wyoming": { x: width/7, y: 10*height/10 }
 
   }
   var yearCenters = {
@@ -132,7 +132,7 @@ var statesTitleX = {
   "California": 4 * width/5,
   "Colorado": width/5,
   "Connecticut": 2* width/5,
-  "Washington, D.C.": width/2,
+  "Washington DC": width/2,
   "Delaware": 3 * width/5,
   "Florida": 4 * width/5,
   "Georgia": width/5,
@@ -185,7 +185,7 @@ var statesTitleY = {
   "California": height/11,
   "Colorado": 2*height/11,
   "Connecticut": 2*height/11,
-  "Washington, D.C.": 2*height/11,
+  "Washington DC": 2*height/11,
   "Delaware": 2*height/11,
   "Florida": 2*height/11,
   "Georgia": 3*height/11,
@@ -276,7 +276,7 @@ var statesTitleY = {
               "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
               "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
               "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
-              "Virginia", "Washington", "Washington, D.C.", "West Virginia", "Wisconsin",
+              "Virginia", "Washington", "Washington DC", "West Virginia", "Wisconsin",
               "Wyoming"])
     .range(["#3957ff", "#d3fe14", "#c9080a", "#fec7f8", "#0b7b3e", 
             "#0bf0e9", "#c203c8", "#fd9b39", "#888593", "#906407", 
@@ -321,6 +321,7 @@ var statesTitleY = {
     });
     // sort them to prevent occlusion of smaller nodes.
     myNodes.sort(function (a, b) { return b.value - a.value; });
+    debugger;
     return myNodes;
   }
 
@@ -428,20 +429,10 @@ var statesTitleY = {
    * yearCenter of their data's year.
    */
   function splitBubblesYear() {
+    hideStates();
     showYears();
-    force.on('tick', function (e) {debugger;
+    force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
-        .attr('cx', function (d) {return d.x; })
-        .attr('cy', function (d) {return d.y; });
-    });
-
-    force.start();
-  }
-  function splitBubblesState() {
-    showStates();
-    debugger;
-    force.on('tick', function (e) {debugger;
-      bubbles.each(moveToStates(e.alpha))
         .attr('cx', function (d) {return d.x; })
         .attr('cy', function (d) {return d.y; });
     });
@@ -464,9 +455,9 @@ var statesTitleY = {
    */
   function moveToYears(alpha) {
     return function (d) {
-      var target = yearCenters[d.year];
-      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
-      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+      var target_year = yearCenters[d.year];   
+      d.x = d.x + (target_year.x - d.x) * damper * alpha * 1.1;  
+      d.y = d.y + (target_year.y - d.y) * damper * alpha * 1.1 ;  
     };
   }
 
@@ -493,14 +484,25 @@ var statesTitleY = {
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
+  function splitBubblesState() {
+    hideYears();
+    showStates();
+    force.on('tick', function (e) {
+      bubbles.each(moveToStates(e.alpha))
+        .attr('cx', function (d) {return d.x; })
+        .attr('cy', function (d) {return d.y; });
+    });
+
+    force.start();
+  }
 
   function moveToStates(alpha) {
     return function (d) {
-      var target = stateCenters[d.state]; 
-      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
-      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+      var target_state = stateCenters[d.state];
+      d.x = d.x + (target_state.x - d.x) * damper * alpha * 1.1; 
+      d.y = d.y + (target_state.y - d.y) * damper * alpha * 1.1;
     };
-      debugger;
+
   }
   function hideStates() {
     svg.selectAll('.state').remove();
@@ -635,7 +637,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('prosperLoanData_grouped.csv', display);
+d3.csv('prosperLoanData_grouped2.csv', display);
 // setup the buttons.
 setupButtons();
 
