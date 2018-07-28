@@ -6,11 +6,63 @@
 </head>
 <body>
   <div class="container">
-    <h1>State-Level Prosper Loan Data</h1>
+    <h2>State-Level Prosper Loan Data</h2>
     <div id="toolbar">
       <a href="#" id="all" class="button active">All Loans</a>
       <a href="#" id="year" class="button">Loans By Year</a>
       <a href="#" id="state" class="button">Loans By State</a>
+      <a href="#" id="state" class="button">AK</a>
+      <a href="#" id="state" class="button">AL</a>
+      <a href="#" id="state" class="button">AR</a>
+      <a href="#" id="state" class="button">AZ</a>
+      <a href="#" id="state" class="button">CA</a>
+      <a href="#" id="state" class="button">CO</a>
+      <a href="#" id="state" class="button">CT</a>
+      <a href="#" id="state" class="button">DC</a>
+      <a href="#" id="state" class="button">DE</a>
+      <a href="#" id="state" class="button">FL</a>
+      <a href="#" id="state" class="button">GA</a>
+      <a href="#" id="state" class="button">HI</a>
+      <a href="#" id="state" class="button">IA</a>
+      <a href="#" id="state" class="button">ID</a>
+      <a href="#" id="state" class="button">IL</a>
+      <a href="#" id="state" class="button">IN</a>
+      <a href="#" id="state" class="button">KS</a>
+      <a href="#" id="state" class="button">KY</a>
+      <a href="#" id="state" class="button">LA</a>
+      <a href="#" id="state" class="button">MA</a>
+      <a href="#" id="state" class="button">MD</a>
+      <a href="#" id="state" class="button">ME</a>
+      <a href="#" id="state" class="button">MI</a>
+      <a href="#" id="state" class="button">MN</a>
+      <a href="#" id="state" class="button">MO</a>
+      <a href="#" id="state" class="button">MS</a>
+      <a href="#" id="state" class="button">MT</a>
+      <a href="#" id="state" class="button">NC</a>
+      <a href="#" id="state" class="button">ND</a>
+      <a href="#" id="state" class="button">NE</a>
+      <a href="#" id="state" class="button">NH</a>
+      <a href="#" id="state" class="button">NJ</a>
+      <a href="#" id="state" class="button">NM</a>
+      <a href="#" id="state" class="button">NV</a>
+      <a href="#" id="state" class="button">NY</a>
+      <a href="#" id="state" class="button">OH</a>
+      <a href="#" id="state" class="button">OK</a>
+      <a href="#" id="state" class="button">OR</a>
+      <a href="#" id="state" class="button">PA</a>
+      <a href="#" id="state" class="button">RI</a>
+      <a href="#" id="state" class="button">SC</a>
+      <a href="#" id="state" class="button">SD</a>
+      <a href="#" id="state" class="button">TN</a>
+      <a href="#" id="state" class="button">TX</a>
+      <a href="#" id="state" class="button">UT</a>
+      <a href="#" id="state" class="button">VA</a>
+      <a href="#" id="state" class="button">VT</a>
+      <a href="#" id="state" class="button">WA</a>
+      <a href="#" id="state" class="button">WI</a>
+      <a href="#" id="state" class="button">WV</a>
+      <a href="#" id="state" class="button">WY</a>
+
     </div>
     <div id="vis"></div>
 
@@ -19,69 +71,18 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="tooltip.js"></script>
 <script type="text/javascript">  
+
 function bubbleChart() {
   // Constants for sizing
   
   var width = 1024;
-  var height = 768;
+  var height = 600;
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('gates_tooltip', 240);
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
-  var stateCenters = {
-    "AK"  : { x: width/5, y: height/10 },   
-    "AL"  : { x: 2* width/5, y: height/10 },    
-    "AR"  : { x: width/2, y: height/10 },   
-    "AZ"  : { x: 3 * width/5, y: height/10 },   
-    "CA"  : { x: 4 * width/5, y: height/10 },   
-    "CO"  : { x: width/5, y: 2*height/10 },   
-    "CT"  : { x: 2* width/5, y: 2*height/10 },    
-    "DC"  : { x: width/2, y: 2*height/10 },   
-    "DE"  : { x: 3 * width/5, y: 2*height/10 },   
-    "FL"  : { x: 4 * width/5, y: 2*height/10 },   
-    "GA"  : { x: width/5, y: 3*height/10 },   
-    "HI"  : { x: 2* width/5, y: 3*height/10 },    
-    "IA"  : { x: width/2, y: 3*height/10 },   
-    "ID"  : { x: 3 * width/5, y: 3*height/10 },   
-    "IL"  : { x: 4 * width/5, y: 3*height/10 },   
-    "IN"  : { x: width/5, y: 4*height/10 },   
-    "KS"  : { x: 2* width/5, y: 4*height/10 },    
-    "KY"  : { x: width/2, y: 4*height/10 },   
-    "LA"  : { x: 3 * width/5, y: 4*height/10 },   
-    "MA"  : { x: 4 * width/5, y: 4*height/10 },   
-    "MD"  : { x: width/5, y: 5*height/10 },   
-    "ME"  : { x: 2* width/5, y: 5*height/10 },    
-    "MI"  : { x: width/2, y: 5*height/10 },   
-    "MN"  : { x: 3 * width/5, y: 5*height/10 },   
-    "MO"  : { x: 4 * width/5, y: 5*height/10 },   
-    "MS"  : { x: width/5, y: 6*height/10 },   
-    "MT"  : { x: 2* width/5, y: 6*height/10 },    
-    "NC"  : { x: width/2, y: 6*height/10 },   
-    "ND"  : { x: 3 * width/5, y: 6*height/10 },   
-    "NE"  : { x: 4 * width/5, y: 6*height/10 },   
-    "NH"  : { x: width/5, y: 7*height/10 },   
-    "NJ"  : { x: 2* width/5, y: 7*height/10 },    
-    "NM"  : { x: width/2, y: 7*height/10 },   
-    "NV"  : { x: 3 * width/5, y: 7*height/10 },   
-    "NY"  : { x: 4 * width/5, y: 7*height/10 },   
-    "OH"  : { x: width/5, y: 8*height/10 },   
-    "OK"  : { x: 2* width/5, y: 8*height/10 },    
-    "OR"  : { x: width/2, y: 8*height/10 },   
-    "PA"  : { x: 3 * width/5, y: 8*height/10 },   
-    "RI"  : { x: 4 * width/5, y: 8*height/10 },   
-    "SC"  : { x: width/5, y: 9*height/10 },   
-    "SD"  : { x: 2* width/5, y: 9*height/10 },    
-    "TN"  : { x: width/2, y: 9*height/10 },   
-    "TX"  : { x: 3 * width/5, y: 9*height/10 },   
-    "UT"  : { x: 4 * width/5, y: 9*height/10 },   
-    "VA"  : { x: width/7, y: 10*height/10 },    
-    "VT"  : { x: 2* width/7, y: 10*height/10 },   
-    "WA"  : { x: width/2, y: 10*height/10 },    
-    "WI"  : { x: 3 * width/7, y: 10*height/10 },    
-    "WV"  : { x: 4 * width/7, y: 10*height/10 },    
-    "WY"  : { x: width/7, y: 10*height/10 }   
-  }
+
   var yearCenters = {
     2006: { x: width / 3, y: height / 3 },
     2007: { x: width / 2, y: height / 3 },
@@ -93,6 +94,8 @@ function bubbleChart() {
     2013: { x: width / 2, y: 2 * height / 3 },
     2014: { x: 2 * width / 3, y: 2 * height / 3 }
   };
+
+
   // X locations of the year titles.
   var yearsTitleX = {
     2006: 220,
@@ -104,6 +107,7 @@ function bubbleChart() {
     2012: 50,
     2013: width / 2,
     2014: width - 200,
+
   };
   // Y locations of the year titles.
   var yearsTitleY = {
@@ -117,119 +121,16 @@ function bubbleChart() {
     2013: 2 * height / 3 - 120,
     2014: 2 * height / 3 - 60
   };
-var statesTitleX = {
-  "AK"  : width/5,
-  "AL"  : 2* width/5,
-  "AR"  : width/2,
-  "AZ"  : 3 * width/5,
-  "CA"  : 4 * width/5,
-  "CO"  : width/5,
-  "CT"  : 2* width/5,
-  "DC"  : width/2,
-  "DE"  : 3 * width/5,
-  "FL"  : 4 * width/5,
-  "GA"  : width/5,
-  "HI"  : 2* width/5,
-  "IA"  : width/2,
-  "ID"  : 3 * width/5,
-  "IL"  : 4 * width/5,
-  "IN"  : width/5,
-  "KS"  : 2* width/5,
-  "KY"  : width/2,
-  "LA"  : 3 * width/5,
-  "MA"  : 4 * width/5,
-  "MD"  : width/5,
-  "ME"  : 2* width/5,
-  "MI"  : width/2,
-  "MN"  : 3 * width/5,
-  "MO"  : 4 * width/5,
-  "MS"  : width/5,
-  "MT"  : 2* width/5,
-  "NC"  : width/2,
-  "ND"  : 3 * width/5,
-  "NE"  : 4 * width/5,
-  "NH"  : width/5,
-  "NJ"  : 2* width/5,
-  "NM"  : width/2,
-  "NV"  : 3 * width/5,
-  "NY"  : 4 * width/5,
-  "OH"  : width/5,
-  "OK"  : 2* width/5,
-  "OR"  : width/2,
-  "PA"  : 3 * width/5,
-  "RI"  : 4 * width/5,
-  "SC"  : width/5,
-  "SD"  : 2* width/5,
-  "TN"  : width/2,
-  "TX"  : 3 * width/5,
-  "UT"  : 4 * width/5,
-  "VA"  : width/7,
-  "VT"  : 2* width/7,
-  "WA"  : width/2,
-  "WI"  : 3 * width/7,
-  "WV"  : 4 * width/7,
-  "WY"  : width/7
-}
-var statesTitleY = {
-  "AK"  : height/11,
-  "AL"  : height/11,
-  "AR"  : height/11,
-  "AZ"  : height/11,
-  "CA"  : height/11,
-  "CO"  : 2*height/11,
-  "CT"  : 2*height/11,
-  "DC"  : 2*height/11,
-  "DE"  : 2*height/11,
-  "FL"  : 2*height/11,
-  "GA"  : 3*height/11,
-  "HI"  : 3*height/11,
-  "IA"  : 3*height/11,
-  "ID"  : 3*height/11,
-  "IL"  : 3*height/11,
-  "IN"  : 4*height/11,
-  "KS"  : 4*height/11,
-  "KY"  : 4*height/11,
-  "LA"  : 4*height/11,
-  "MA"  : 4*height/11,
-  "MD"  : 5*height/11,
-  "ME"  : 5*height/11,
-  "MI"  : 5*height/11,
-  "MN"  : 5*height/11,
-  "MO"  : 5*height/11,
-  "MS"  : 6*height/11,
-  "MT"  : 6*height/11,
-  "NC"  : 6*height/11,
-  "ND"  : 6*height/11,
-  "NE"  : 6*height/11,
-  "NH"  : 7*height/11,
-  "NJ"  : 7*height/11,
-  "NM"  : 7*height/11,
-  "NV"  : 7*height/11,
-  "NY"  : 7*height/11,
-  "OH"  : 8*height/11,
-  "OK"  : 8*height/11,
-  "OR"  : 8*height/11,
-  "PA"  : 8*height/11,
-  "RI"  : 8*height/11,
-  "SC"  : 9*height/11,
-  "SD"  : 9*height/11,
-  "TN"  : 9*height/11,
-  "TX"  : 9*height/11,
-  "UT"  : 9*height/11,
-  "VA"  : 10*height/11,
-  "VT"  : 10*height/11,
-  "WA"  : 10*height/11,
-  "WI"  : 10*height/11,
-  "WV"  : 10*height/11,
-  "WY"  : 10*height/11
-}
+
   // Used when setting up force and
   // moving around nodes
-  var damper = 0.102;
+  var damper = 0.12;
+
   // These will be set in create_nodes and create_vis
   var svg = null;
   var bubbles = null;
   var nodes = [];
+
   // Charge function that is called for each node.
   // Charge is proportional to the diameter of the
   // circle (which is stored in the radius attribute
@@ -242,6 +143,7 @@ var statesTitleY = {
   function charge(d) {
     return -Math.pow(d.radius, 2.0) / 8;
   }
+
   // Here we create a force layout and
   // configure it to use the charge function
   // from above. This also sets some contants
@@ -252,6 +154,8 @@ var statesTitleY = {
     .charge(charge)
     .gravity(-0.01)
     .friction(0.9);
+
+
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain([ "AK", "AL", "AR", "AZ", "CA",
@@ -311,6 +215,25 @@ var statesTitleY = {
     debugger;
     return myNodes;
   }
+  function updateNodes(state) {
+    var filtered = nodes.filter(function(d) {
+      return new d['state'] === state});
+
+    bubbles = svg.selectAll('.bubble')
+      .data(filtered, function (d) { return d.id; });
+
+    bubbles.exit.remove()
+
+    bubbles.enter().append('circle')
+      .classed('bubble', true)
+      .attr('r', 0)
+      .attr('fill', function (d) {return fillColor(d.state); })
+      .attr('stroke', function (d) {return d3.rgb(fillColor(d.state)).darker(); })
+      .attr('stroke-width', 2)
+      .on('mouseover', showDetail)
+      .on('mouseout', hideDetail);
+
+}
   /*
    * Main entry point to the bubble chart. This function is returned
    * by the parent closure. It prepares the rawData for visualization
@@ -319,7 +242,7 @@ var statesTitleY = {
    *
    * selector is expected to be a DOM element or CSS selector that
    * points to the parent element of the bubble chart. Inside this
-   * element, the code will add the SVG continer for the visualization.
+   * element, the code will add the SVG container for the visualization.
    *
    * rawData is expected to be an array of data objects as provided by
    * a d3 loading function like d3.csv.
@@ -330,20 +253,22 @@ var statesTitleY = {
     // with `+`.
     var maxAmount = d3.max(rawData, function (d) {return +d.LoanOriginalAmount; });
     radiusScale.domain([0, maxAmount]);
-    nodes = createNodes(rawData);
 
-    debugger;
+    nodes = createNodes(rawData);
     // Set the force's nodes to our newly created nodes array.
     force.nodes(nodes);
+
     // Create a SVG element inside the provided selector
     // with desired size.
     svg = d3.select(selector)
       .append('svg')
       .attr('width', width)
       .attr('height', height);
+
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
+
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
     // Initially, their radius (r attribute) will be 0.
@@ -355,16 +280,21 @@ var statesTitleY = {
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
+
+    // This may be where I want to add the update using the 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
     bubbles.transition()
       .duration(2000)
       .attr('r', function (d) { return d.radius; });
+
     // Set initial layout to single group.
     groupBubbles();
         circle.append("title")
       .text(function(d) { return d.state});
+
   };
+
   /*
    * Sets visualization in "single group mode".
    * The year labels are hidden and the force layout
@@ -374,13 +304,16 @@ var statesTitleY = {
   function groupBubbles() {
     hideYears();
     hideStates();
+
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
         .attr('cx', function (d) { return d.x; })
         .attr('cy', function (d) { return d.y; });
     });
+
     force.start();
   }
+
   /*
    * Helper function for "single group mode".
    * Returns a function that takes the data for a
@@ -401,6 +334,7 @@ var statesTitleY = {
       d.y = d.y + (center.y - d.y) * damper * alpha;
     };
   }
+
   /*
    * Sets visualization in "split by year mode".
    * The year labels are shown and the force layout
@@ -415,6 +349,7 @@ var statesTitleY = {
         .attr('cx', function (d) {return d.x; })
         .attr('cy', function (d) {return d.y; });
     });
+
     force.start();
   }
   /*
@@ -438,12 +373,14 @@ var statesTitleY = {
       d.y = d.y + (target_year.y - d.y) * damper * alpha * 1.1 ;  
     };
   }
+
   /*
    * Hides Year title displays.
    */
   function hideYears() {
     svg.selectAll('.year').remove();
   }
+
   /*
    * Shows Year title displays.
    */
@@ -463,23 +400,28 @@ var statesTitleY = {
   function splitBubblesState() {
     hideYears();
     // showStates();
+    singleStateBubble = 
     force.on('tick', function (e) {
       bubbles.each(moveToStates(e.alpha))
         .attr('cx', function (d) {return d.x; })
         .attr('cy', function (d) {return d.y; });
     });
+
     force.start();
   }
+
   function moveToStates(alpha) {
     return function (d) {
       var target_state = stateCenters[d.state];
       d.x = d.x + (target_state.x - d.x) * damper * alpha * 1.1; 
       d.y = d.y + (target_state.y - d.y) * damper * alpha * 1.1;
     };
+
   }
   function hideStates() {
     svg.selectAll('.state').remove();
   }
+
   /*
    * Shows State title displays.
    */
@@ -496,6 +438,7 @@ var statesTitleY = {
   //     .attr('text-anchor', 'middle')
   //     .text(function (d) { return d; });
   // }
+
   /*
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
@@ -503,6 +446,7 @@ var statesTitleY = {
   function showDetail(d) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
+
     var content = '<span class="name">State: </span><span class="value">' +
                   d.state +
                   '</span><br/>' +
@@ -514,6 +458,7 @@ var statesTitleY = {
                   '</span>';
     tooltip.showTooltip(content, d3.event);
   }
+
   /*
    * Hides tooltip
    */
@@ -521,8 +466,10 @@ var statesTitleY = {
     // reset outline
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.BorrowerState)).darker());
+
     tooltip.hideTooltip();
   }
+
   /*
    * Externally accessible function (this is attached to the
    * returned chart function). Allows the visualization to toggle
@@ -539,14 +486,19 @@ var statesTitleY = {
       groupBubbles();
     }
   };
+
+
   // return the chart function from closure.
   return chart;
 }
+
 /*
  * Below is the initialization code as well as some helper functions
  * to create a new bubble chart instance, load the data, and display it.
  */
+
 var myBubbleChart = bubbleChart();
+
 /*
  * Function called once data is loaded from CSV.
  * Calls bubble chart function to display inside #vis div.
@@ -555,8 +507,10 @@ function display(error, data) {
   if (error) {
     console.log(error);
   }
+
   myBubbleChart('#vis', data);
 }
+
 /*
  * Sets up the layout buttons to allow for toggling between view modes.
  */
@@ -572,11 +526,13 @@ function setupButtons() {
       button.classed('active', true);
       // Get the id of the button
       var buttonId = button.attr('id');
+
       // Toggle the bubble chart based on
       // the currently clicked button.
       myBubbleChart.toggleDisplay(buttonId);
     });
 }
+
 /*
  * Helper function to convert a number into a string
  * and add commas to it to improve presentation.
@@ -590,12 +546,15 @@ function addCommas(nStr) {
   while (rgx.test(x1)) {
     x1 = x1.replace(rgx, '$1' + ',' + '$2');
   }
+
   return x1 + x2;
 }
+
 // Load the data.
 d3.csv('prosperLoanData_grouped2.csv', display);
 // setup the buttons.
 setupButtons();
+
 </script>
 
 </body>
