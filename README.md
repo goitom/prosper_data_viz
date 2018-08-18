@@ -11,3 +11,4 @@ I was asked by my reviewer to add an additional button to breakout the loan amou
 # Resources
 I am heavily indebted to the following post/tutorial on creating an animated bubble chart in d3: http://vallandingham.me/bubble_charts_in_js.html. This visualization is an adaptation of the tutorial, with comments from the original included where appropriate.
 In addition, I used the following color generating tool to create the categorical colors that I assigned to the different states: https://jnnnnn.github.io/category-colors-constrained.html
+https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
